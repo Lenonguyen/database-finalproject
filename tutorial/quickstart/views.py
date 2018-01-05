@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
+from models import Job, Book
 from rest_framework import viewsets
-from tutorial.quickstart.serializers import UserSerializer, GroupSerializer
+from tutorial.quickstart.serializers import UserSerializer, GroupSerializer, JobSerializer, BookSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """ 
@@ -15,3 +16,17 @@ class GroupViewSet(viewsets.ModelViewSet):
     """ 
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+class JobViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows jobs to be viewed or edited.
+    """
+    queryset = Job.objects.all()
+    serializer_class = JobSerializer
+
+class BookViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows books to be viewed or edited.
+    """
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer
