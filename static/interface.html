@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Data</title>
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+	<script>
+function postJob(){
+ var jobName=document.getElementById("Job");
+ var jobCompany=document.getElementById("Company");
+ var jobAddress=document.getElementById("Address");
+ var jid=document.getElementById("j-id");
+ var jsonData = '{"name":' + JSON.stringify(jobName.value)+',"company":' + JSON.stringify(jobCompany.value)+',"address":'+JSON.stringify(jobAddress.value) + '}' ;
+ var request = new XMLHttpRequest();
+ console.log(jsonData);
+ request.open("POST", "http://localhost:8000/jobs/", false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(jsonData); 
+ var array = JSON.parse(request.responseText);
+ console.log(array);
+ jsonData="";
+}
+
+function deleleJob(){
+ var jid=document.getElementById("j-id");
+ var jsonData = '{"id":' + JSON.stringify(jid.value) + '}';
+ var url = "http://localhost:8000/jobs/" + jid.value;
+ var request = new XMLHttpRequest();
+ request.open("DELETE", url , false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(jsonData); 
+ jsonData="";
+}
+function putJob(){
+ var jobName=document.getElementById("Job");
+ var jobCompany=document.getElementById("Company");
+ var jobAddress=document.getElementById("Address");
+ var jid=document.getElementById("j-id");
+ var jsonData = '{"name":' + JSON.stringify(jobName.value)+',"company":' + JSON.stringify(jobCompany.value)+',"address":'+JSON.stringify(jobAddress.value) + '}' ;
+ var gid=document.getElementByID("j-id");
+ var request = new XMLHttpRequest();
+ var url="http://localhost:8000/jobs/" +jid.value+"/";
+ request.open("PUT", url, false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(jsonData);
+}
+function postBook(){
+ var bookTitle=document.getElementById("Title");
+ var bookAuthor=document.getElementById("Author");
+ var gid=document.getElementById("b-id");
+ var jsonData = '{"title":' + JSON.stringify(bookTitle.value)+',"author":' + JSON.stringify(bookAuthor.value)+ '}' ;
+ var request = new XMLHttpRequest();
+ console.log(jsonData);
+ request.open("POST", "http://localhost:8000/books/", false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(jsonData); 
+ var array = JSON.parse(request.responseText);
+ console.log(array);
+ jsonData="";
+}
+
+function deleleBook(){
+ var bid=document.getElementById("b-id");
+ var jsonData = '{"id":' + JSON.stringify(bid.value) + '}';
+ var url = "http://localhost:8000/books/" + bid.value;
+ var request = new XMLHttpRequest();
+ request.open("DELETE", url , false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(jsonData); 
+ jsonData="";
+}
+function putBook(){
+ var bookTitle=document.getElementById("Title");
+ var bookAuthor=document.getElementById("Author");
+ var bid=document.getElementById("b-id");
+ var jsonData = '{"title":' + JSON.stringify(bookTitle.value)+',"author":' + JSON.stringify(bookAuthor.value)+ '}' ;
+ var request = new XMLHttpRequest();
+ var url="http://localhost:8000/books/" +bid.value+"/";
+ request.open("PUT", url, false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(jsonData);
+}
+function readCookie(name) {
+ var nameEQ = encodeURIComponent(name) + "=";
+ var ca = document.cookie.split(';');
+ for (var i = 0; i < ca.length; i++) {
+ var c = ca[i];
+ while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+ if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+ }
+ return null;
+}
+</script>
+	<link rel="stylesheet" href=".js">
+</head>
+
+<style>
+	body {
+		background-color:#51AAE4;
+		font-family: 'Titillium Web', sans-serif;
+	}
+
+	.title {
+		color: #f46e2c;
+	}
+
+	.title h1 {
+		margin-bottom: 0px;
+		padding-left: 50px;
+	}
+
+	.content {
+		width: 500px;
+		display: block;
+		margin: auto;
+		padding-bottom: 20px;
+		border: 1px solid #E6E6E6;
+		border-radius: 10px;
+		background-color: #E6E6E6;
+		color: #65665f;
+	}
+
+	.input {
+		padding: 0px 10px 10px 50px;
+	}
+
+	.input-form {
+		margin-top: 10px;
+	}
+
+	.input-form input {
+		font-family: 'Titillium Web', sans-serif;
+		font-weight: bold;
+		background-color: #E6E6E6;
+		width: 80%;
+		height: 25px;
+		border: 0px;
+		border-bottom: 2px solid #94968b;
+		padding-left: 10px;
+		padding-bottom: 5px;
+	}
+
+	.label {
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+
+	.group-button {
+		display: flex;
+		justify-content: center;
+		margin-top: 10px;
+	}
+
+	.button {
+		color: #65665f;
+		padding: 10px;
+		margin: 10px;
+		border: 2px solid #65665f;
+		border-radius: 5px;
+		font-weight: bold;
+		font-size: medium;
+	}
+	.button:hover {
+		background-color: #65665f;
+		color: #E6E6E6;
+	}
+
+	.button:active {
+		transform: translateY(4px);
+	}
+</style>
+
+<body>
+	<div class="content">
+		<div class="title">
+			<h1>Job</h1>
+		</div>
+
+		<div class="input">
+			<div class="input-form">
+				<div class="label">Job name:</div>
+				<input type="text" id="Job" placeholder="Write your Job here..">
+			</div>
+			<div class="input-form">
+				<div class="label">Company :</div>
+				<input type="text" id="Company" placeholder="Let us know your Company ">
+			</div>
+			<div class="input-form">
+				<div class="label">Address:</div>
+				<input type="text" id="Address" placeholder="Give us the address..">
+			</div>
+			<div class="input-form">
+				<div class="label">ID:</div>
+				<input type="text" id="j-id" placeholder="Let us know the ID of the job..">
+			</div>
+		</div>
+		
+		<div class="group-button">
+			<div>
+				<button onClick="postJob()" class="button">Add Job</button>
+			</div>
+			<div>
+				<button onClick="deleleJob()" class="button">Delete Job</button>	
+			</div>
+			<div>
+				<button onClick="putJob()" class="button">Rename Job</button>	
+			</div>
+		</div>
+	</div>
+	<div style="margin-top :30px"" class="content">
+		<div class="title">
+			<h1>Book</h1>
+		</div>
+
+		<div class="input">
+			<div class="input-form">
+				<div class="label">Book Title:</div>
+				<input type="text" id="Title" placeholder="Write your book title here..">
+			</div>
+			<div class="input-form">
+				<div class="label">Author :</div>
+				<input type="text" id="Author" placeholder="Let us know the author's name ">
+			</div>
+			<div class="input-form">
+				<div class="label">ID:</div>
+				<input type="text" id="b-id" placeholder="Let us know the ID of the book..">
+			</div>
+		</div>
+		
+		<div class="group-button">
+			<div>
+				<button onClick="postBook()" class="button">Add Book</button>
+			</div>
+			<div>
+				<button onClick="deleleBook()" class="button">Delete Book</button>	
+			</div>
+			<div>
+				<button onClick="putBook()" class="button">Rename Book</button>	
+			</div>
+		</div>
+	</div>
+</body>
+</html>
