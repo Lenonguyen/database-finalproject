@@ -12,6 +12,12 @@
 		background-color:#51AAE4;
 		font-family: 'Titillium Web', sans-serif;
 	}
+	table {
+	width: 500px;
+	display: block;
+	margin: auto;
+	border: 1px solid black;
+}
 	.title {
 		color: #f46e2c;
 	}
@@ -120,8 +126,10 @@
 				<button onClick="putJob()" class="button">Rename Job</button>	
 			</div>
 		</div>
+		<div>
+			<p id="tempJob"></p>
+		</div>
 	</div>
-	<p id="tempJob"></p>
 	<div style="margin-top :30px"" class="content">
 		<div class="title">
 			<h1>Book</h1>
@@ -155,8 +163,10 @@
 				<button onClick="putBook()" class="button">Rename Book</button>	
 			</div>
 		</div>
+		<div>
+			<p id="tempBook"></p>
+		</div>
 	</div>
-	<p id="tempBook"></p>
 	<script src="jsfile.js">
 	</script>
 </body>
