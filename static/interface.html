@@ -4,105 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Data</title>
 	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
-	<script>
-function postJob(){
- var jobName=document.getElementById("Job");
- var jobCompany=document.getElementById("Company");
- var jobAddress=document.getElementById("Address");
- var jid=document.getElementById("j-id");
- var jsonData = '{"name":' + JSON.stringify(jobName.value)+',"company":' + JSON.stringify(jobCompany.value)+',"address":'+JSON.stringify(jobAddress.value) + '}' ;
- var request = new XMLHttpRequest();
- console.log(jsonData);
- request.open("POST", "http://localhost:8000/jobs/", false);
- request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
- request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
- request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
- request.send(jsonData); 
- var array = JSON.parse(request.responseText);
- console.log(array);
- jsonData="";
-}
-
-function deleleJob(){
- var jid=document.getElementById("j-id");
- var jsonData = '{"id":' + JSON.stringify(jid.value) + '}';
- var url = "http://localhost:8000/jobs/" + jid.value;
- var request = new XMLHttpRequest();
- request.open("DELETE", url , false);
- request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
- request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
- request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
- request.send(jsonData); 
- jsonData="";
-}
-function putJob(){
- var jobName=document.getElementById("Job");
- var jobCompany=document.getElementById("Company");
- var jobAddress=document.getElementById("Address");
- var jid=document.getElementById("j-id");
- var jsonData = '{"name":' + JSON.stringify(jobName.value)+',"company":' + JSON.stringify(jobCompany.value)+',"address":'+JSON.stringify(jobAddress.value) + '}' ;
- var gid=document.getElementByID("j-id");
- var request = new XMLHttpRequest();
- var url="http://localhost:8000/jobs/" +jid.value+"/";
- request.open("PUT", url, false);
- request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
- request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
- request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
- request.send(jsonData);
-}
-function postBook(){
- var bookTitle=document.getElementById("Title");
- var bookAuthor=document.getElementById("Author");
- var gid=document.getElementById("b-id");
- var jsonData = '{"title":' + JSON.stringify(bookTitle.value)+',"author":' + JSON.stringify(bookAuthor.value)+ '}' ;
- var request = new XMLHttpRequest();
- console.log(jsonData);
- request.open("POST", "http://localhost:8000/books/", false);
- request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
- request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
- request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
- request.send(jsonData); 
- var array = JSON.parse(request.responseText);
- console.log(array);
- jsonData="";
-}
-
-function deleleBook(){
- var bid=document.getElementById("b-id");
- var jsonData = '{"id":' + JSON.stringify(bid.value) + '}';
- var url = "http://localhost:8000/books/" + bid.value;
- var request = new XMLHttpRequest();
- request.open("DELETE", url , false);
- request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
- request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
- request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
- request.send(jsonData); 
- jsonData="";
-}
-function putBook(){
- var bookTitle=document.getElementById("Title");
- var bookAuthor=document.getElementById("Author");
- var bid=document.getElementById("b-id");
- var jsonData = '{"title":' + JSON.stringify(bookTitle.value)+',"author":' + JSON.stringify(bookAuthor.value)+ '}' ;
- var request = new XMLHttpRequest();
- var url="http://localhost:8000/books/" +bid.value+"/";
- request.open("PUT", url, false);
- request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
- request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
- request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
- request.send(jsonData);
-}
-function readCookie(name) {
- var nameEQ = encodeURIComponent(name) + "=";
- var ca = document.cookie.split(';');
- for (var i = 0; i < ca.length; i++) {
- var c = ca[i];
- while (c.charAt(0) === ' ') c = c.substring(1, c.length);
- if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
- }
- return null;
-}
-</script>
 	<link rel="stylesheet" href=".js">
 </head>
 
@@ -111,7 +12,6 @@ function readCookie(name) {
 		background-color:#51AAE4;
 		font-family: 'Titillium Web', sans-serif;
 	}
-
 	.title {
 		color: #f46e2c;
 	}
@@ -206,8 +106,10 @@ function readCookie(name) {
 				<input type="text" id="j-id" placeholder="Let us know the ID of the job..">
 			</div>
 		</div>
-		
 		<div class="group-button">
+			<div>
+				<button onClick="getJob()" class="button">Get Job</button>
+			</div>
 			<div>
 				<button onClick="postJob()" class="button">Add Job</button>
 			</div>
@@ -219,11 +121,11 @@ function readCookie(name) {
 			</div>
 		</div>
 	</div>
+	<p id="tempJob"></p>
 	<div style="margin-top :30px"" class="content">
 		<div class="title">
 			<h1>Book</h1>
 		</div>
-
 		<div class="input">
 			<div class="input-form">
 				<div class="label">Book Title:</div>
@@ -241,6 +143,9 @@ function readCookie(name) {
 		
 		<div class="group-button">
 			<div>
+				<button onClick="getBook()" class="button">Get Book</button>
+			</div>
+			<div>
 				<button onClick="postBook()" class="button">Add Book</button>
 			</div>
 			<div>
@@ -251,5 +156,8 @@ function readCookie(name) {
 			</div>
 		</div>
 	</div>
+	<p id="tempBook"></p>
+	<script src="jsfile.js">
+	</script>
 </body>
 </html>
