@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Group</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href=".js">
+</head>
+
+<style>
+	body {
+		background-color:#51AAE4;
+		font-family: 'Roboto', sans-serif;
+	}
+
+	table {
+		border-collapse: collapse;
+		width: 80%;
+		margin: auto;
+	}
+
+	.result-table {
+		margin: auto;
+		text-align: center;
+		width: 80%;
+	}
+
+	th, td {
+		border: 1px solid black;
+	}
+
+	.title {
+		color: #f46e2c;
+	}
+
+	.title h1 {
+		margin-bottom: 0px;
+		padding-left: 50px;
+	}
+
+	.content {
+		width: 500px;
+		display: block;
+		margin: auto;
+		padding-bottom: 20px;
+		border: 1px solid #E6E6E6;
+		border-radius: 10px;
+		background-color: #E6E6E6;
+		color: #65665f;
+	}
+
+	.input {
+		padding: 0px 10px 10px 50px;
+	}
+
+	.input-form {
+		margin-top: 10px;
+	}
+
+	.input-form input {
+		font-family: 'Titillium Web', sans-serif;
+		font-weight: bold;
+		background-color: #E6E6E6;
+		width: 80%;
+		height: 25px;
+		border: 0px;
+		border-bottom: 2px solid #94968b;
+		padding-left: 10px;
+		padding-bottom: 5px;
+	}
+
+	.label {
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+
+	.group-button {
+		display: flex;
+		justify-content: center;
+		margin-top: 10px;
+	}
+
+	.button {
+		color: #65665f;
+		padding: 10px;
+		margin: 10px;
+		border: 2px solid #65665f;
+		border-radius: 5px;
+		font-weight: bold;
+		font-size: medium;
+	}
+	.button:hover {
+		background-color: #65665f;
+		color: #E6E6E6;
+	}
+
+	.button:active {
+		transform: translateY(4px);
+	}
+</style>
+
+<body>
+<div class="content">
+		<div class="title">
+			<h1>Group</h1>
+		</div>
+
+		<div class="input">
+			<div class="input-form">
+				<div class="label">Code:</div>
+				<input type="text" id="Code" >
+			</div>
+			<div class="input-form">
+				<div class="label">Department :</div>
+				<input type="text" id="Department" >
+			</div>
+			<div class="input-form">
+				<div class="label">Group Id :</div>
+				<input type="text" id="G-id" >
+			</div>
+			<div class="input-form">
+				<div class="label">Degree Program Id :</div>
+				<input type="text" id="DP-id" >
+			</div>
+		</div>
+		<div class="group-button">
+			<div>
+				<button onClick="getGroup()" class="button">Get Group</button>
+			</div>
+			<div>
+				<button onClick="postGroup()" class="button">Add Group</button>
+			</div>
+		</div>
+</div>
+<div class='result-table'>
+		<p id="temp"></p>
+	</div>
+	<script src="Group.js">
+	</script>
+</body>
+</html>

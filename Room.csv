@@ -1,0 +1,90 @@
+1,A1066,25,kielet/tl
+2,A1067,25,SOS
+3,A1068,18,pienryhmätila
+4,A1138             ,25,SOS/LT*
+5,A1139,24,SOS
+6,A2025,25,SOS (pyöreät pöydät)
+7,A2026,25,SOS
+8,A2027,30,SOS
+9,A2032,40,I-RT-1N (42)
+10,A2033,40,I-RT-2N (37)
+11,A2034                    ,40,I-EY-2N (44)
+12,A2039 fyke           ,35,I-YT-3N/4N (24)
+13,A2040,25,I-RT-3N/4N (31)
+14,A2041,25,EM-4N (10)+suunt
+15,A2042,25,lt
+16,A2046 juhlasali,80-240,yhteinen
+17,A2068,40,I-IT-2N (35)
+18,A3001,25,I-KT-3N/4N (29)
+19,A3002,25,I-KT-1N1 (27)
+20,A3003,30,I-KT-1N2 (27)
+21,A3010,40,I-TT-1N (42)
+22,A3015 sähkö,40,I-ST-3N/4N (39)
+23,A3016,25,I-TT-3N/4N (21)
+24,A3017,25,lt
+25,A3018,25,lt
+26,A3019,25,lt
+27,A3048,40,I-TT-2N (36)
+28,B0001 studio,,lt
+29,B0023,20,lt
+30,B0026,30,lt
+31,B1022 auditorio,135,I-ST-1N (62)
+32,B1057 auditorio,60,I-EY-1N (60)
+33,B1061,35,lt
+34,B2001,42,lt
+35,B2002-3,52,I-ST-2N (53)**
+36,B2005,42,lt
+37,B2006-7,52,I-IT-1N (46)
+38,B2009-10,52,lt
+39,B2011,48,I-KT-2N (45)
+40,B2012-13,52,lt
+41,C1153 + 20 pc,28,I-IT-3N/4N (28)
+42,C1154 + 20 pc,38,lt
+43,C1160 ,38,lt
+44,C1161 ,38,lt
+45,C1162,24,lt
+46,C134 auditorio,120,lt
+47,A1078,30,TT
+48,A1079,30,lt
+49,A1080,30,lt
+50,A2029,24,TT/lt
+51,A2030,25,lt
+52,A2031,24,lt
+53,A3005,25,ST
+54,A3006,24,ST
+55,A3007,20,KT
+56,A3008,25,KT
+57,A3009,25,TT/RT
+58,B0028,35,lt
+59,B2008,30?,lt
+60,C001,19,TT
+61,C153,30,RT
+62,F4102,,Automaatioluokka (20 hlö)
+63,F4110,,Simulointiluokka
+64,F4P54,,Energiatekniikan laboratorio
+65,F6106,,Ympäristölaboratorio
+66,F6155,,Geotekniikan ja rakennusfysiikan lab.
+67,F6P21,,Betonitekniikan laboratorio
+68,F6141A,,Fysiikan laboratorio A
+69,F6141B,,Fysiikan laboratorio B
+70,LEC019,,Projektityötila
+71,LEC1-2,,Elektroniikka/Electronics
+72,LEC3,,Tietoliikennetekniikka/Telecomm.
+73,LEC4,,Tietokonetekniikka/Computer Eng.
+74,LEC5,,Tietokonetekniikka/Computer Eng.
+75,LEP1,,Sähkönjakelutekniikka
+76,LEP2,,Sähkönkäyttötekniikka
+77,LEP3,,Automaatiotekniikka
+78,LEP5,,Suurjännitetekniikan laboratorio
+79,LEP4/a,,Pienoisprosessit laboratorio
+80,LEP7,,Sähköasennustekniikan laboratorio
+81,LMAA,,Automaattinen kokoonpano
+82,LMCAE,,CAE Ohjelmointiluokka (20 hlö)
+83,LMDM,,3D-tulostus ja -skannauslaboratorio
+84,LMMA,,Koneautomaatio
+85,LMMT,,Materiaalitekniikka (F6109a)
+86,LMRD,,Projektialue
+87,LMNC,,CAD/CAM-tekniikka
+88,LMPH,,Pneumatiikka ja hydrauliikka
+89,LMQC,,Laatutekniikka (F4112)
+90,MOOT,,Energia-/moottorilaboratorio

@@ -1,24 +1,39 @@
-var arrayJob,arrayBook;
-function getJob(){
+var arrayCourser;
+
+var arrayCourse;
+function getCourse(){
 var request = new XMLHttpRequest();
-	request.open("GET", "http://localhost:8000/jobs/", false);
+	request.open("GET", "http://localhost:8000/courses/", false);
 	request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
 	request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
 	request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	request.send();
-arrayJob = JSON.parse(request.responseText);
-var display = "<table><tr><th>Job</th><th>Company  </th><th>Address</th><th>Id</th></tr>";
-for(var i=0;i<arrayJob.length;i++){
-    var url = arrayJob[i].url;
-    var job = arrayJob[i].name;
-    var company = arrayJob[i].company;
-    var address = arrayJob[i].address;
-    display+="<tr><td>" + arrayJob[i].name + "</td><td>" + arrayJob[i].company + "</td><td>"+ arrayJob[i].address +"</td><td>"+ arrayJob[i].url +"</td></tr>";
+arrayCourse = JSON.parse(request.responseText);
+var display = "<table><tr><th>Code</th><th>Course </th><th>Changes</th><th>Language </th></th><th>Credit </th></th><th>Amount </th></th><th>P1 </th></th><th>P2 </th></th><th>P3 </th></th><th>P4 </th></th><th>P5 </th></th><th>Total </th></th><th>Curriculum Id </th></tr>";
+for(var i=0;i<arrayCourse.length;i++){
+    display+="<tr><td>" + arrayCourse[i].code + "</td><td>" + arrayCourse[i].name + "</td><td>"+ arrayCourse[i].changes +"</td><td>" + arrayCourse[i].languages +"</td><td>"+ arrayCourse[i].credit +"</td><td>"+ arrayCourse[i].amount +"</td><td>"+ arrayCourse[i].p1 +"</td><td>"+ arrayCourse[i].p2 +"</td><td>"+ arrayCourse[i].p3 +"</td><td>"+ arrayCourse[i].p4 +"</td><td>"+ arrayCourse[i].p5 +"</td><td>"+ arrayCourse[i].total +"</td><td>"+ arrayCourse[i].curriculumid +/*"</td><td>"+ arrayJob[i].url +"*/"</td></tr>";
 }
 display+="</table>";
-    document.getElementById("tempJob").innerHTML=display;
+    document.getElementById("temp").innerHTML=display;
 
 }
+
+function postTeacher(){
+ var Code=document.getElementById("Code");
+ var Name=document.getElementById("Name");
+ var jsonData = '{"code":' + JSON.stringify(Code.value)+',"name":' + JSON.stringify(Name.value)+'}' ;
+ var request = new XMLHttpRequest();
+ console.log(jsonData);
+ request.open("POST", "http://localhost:8000/teachers/", false);
+ request.setRequestHeader("Authorization", "Basic " + btoa("admin:password123"));
+ request.setRequestHeader("X-CSRFToken", readCookie("csrftoken"));
+ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+ request.send(jsonData); 
+ var array = JSON.parse(request.responseText);
+ console.log(array);
+ jsonData="";
+}
+
 function postJob(){
  var jobName=document.getElementById("Job");
  var jobCompany=document.getElementById("Company");

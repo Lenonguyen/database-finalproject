@@ -91,43 +91,29 @@
 <body>
 	<div class="content">
 		<div class="title">
-			<h1>Job</h1>
+			<h1>Teacher</h1>
 		</div>
 
 		<div class="input">
 			<div class="input-form">
-				<div class="label">Job name:</div>
-				<input type="text" id="Job" placeholder="Write your Job here..">
+				<div class="label">Code:</div>
+				<input type="text" id="Code" >
 			</div>
 			<div class="input-form">
-				<div class="label">Company :</div>
-				<input type="text" id="Company" placeholder="Let us know your Company ">
-			</div>
-			<div class="input-form">
-				<div class="label">Address:</div>
-				<input type="text" id="Address" placeholder="Give us the address..">
-			</div>
-			<div class="input-form">
-				<div class="label">ID:</div>
-				<input type="text" id="j-id" placeholder="Let us know the ID of the job..">
+				<div class="label">Teacher name :</div>
+				<input type="text" id="Name" >
 			</div>
 		</div>
 		<div class="group-button">
 			<div>
-				<button onClick="getJob()" class="button">Get Job</button>
+				<button onClick="getCourse()" class="button">Get Teacher list</button>
 			</div>
 			<div>
-				<button onClick="postJob()" class="button">Add Job</button>
-			</div>
-			<div>
-				<button onClick="deleleJob()" class="button">Delete Job</button>	
-			</div>
-			<div>
-				<button onClick="putJob()" class="button">Rename Job</button>	
+				<button onClick="postTeacher()" class="button">Add Teacher</button>
 			</div>
 		</div>
 		<div>
-			<p id="tempJob"></p>
+			<p id="temp"></p>
 		</div>
 	</div>
 	<div style="margin-top :30px"" class="content">
