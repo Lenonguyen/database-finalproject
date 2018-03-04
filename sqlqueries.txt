@@ -1,0 +1,17 @@
+1. teaching by teacher per year (latest year default) like in Excel
+select * from Course, Teacher 
+inner join Teacher_Imp on Teacher.id=Teacher_Imp.Teacherid 
+inner join Implementation on Teacher_Imp.Implementationid where Course.id=Implementation.Courseid ;
+
+2. teaching by student group like in Excel (latest year default)
+select * from Course as c, subGroup as s
+inner join subGroup_imp as si on s.id=si.subGroupid
+inner join Implementation as i on i.id = si.Implementationid where c.id=i.Courseid;
+
+3. Student groups by degree program
+
+select * from subGroup, Degreeprogram where subGroup.Degreeprogramid=Degreeprogram.id;
+
+4. Teachers by degree program (teacher can teach in several degree programs)
+select * from Teacher , Degreeprogram 
+inner join Teacher_degreeprogram on Teacher_degreeprogram.Teacherid=Teacher.id where Teacher_degreeprogram.Degreeprogramid = Degreeprogram.id;
